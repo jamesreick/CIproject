@@ -39,15 +39,22 @@
     font-size: 17px;
 }
 
-.topnav-div{
+.element{
     font-family: 'PregnancyJourneyRegular-lgR7D';
     padding: 0px;
-    margin-left: 780px;
-    z-index: 1;
     font-size: 50px;
-    color: #f2f2f2;
     position: absolute;
 }
+#element-1{   
+    color: #f2f2f2;
+    margin-left: 770px;
+    z-index: 1; 
+}
+#element-2{
+     color:#8d8d8d49; 
+     margin-left: 780px; 
+     margin-top: 8px;
+     z-index:2; }
 
 .topnav {
     background-color:rgb(0, 0, 0);
@@ -177,7 +184,8 @@
 
 
 h1{
-    font-size: 30px;
+    font-size: 25px;
+    font-weight: 5;
     margin-top: 100px;
     margin-left: 400px;
     clear: both;
@@ -222,7 +230,8 @@ h1{
 
 
 h2{
-    font-size: 30px;
+    font-size: 25px;
+    font-weight: 5;
     margin-top: 100px;
     margin-left: 220px;
     clear: both;

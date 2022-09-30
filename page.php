@@ -42,7 +42,7 @@
          <a href="#news">Blank</a>
          <a href="#contact">Blank</a>
          <a href="#about">Blank</a>
-         <div id= 1 class = topnav-div>Music Discovery</div>
+         <div id= element-1 class = element>Music Discovery</div>
       </div>
       <div class="layout">
          <div class="container">

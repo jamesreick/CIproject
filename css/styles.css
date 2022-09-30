@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppin', sans-serif;
+}
+
+.artist{
+    position: absolute;
+    float: left;
+    left: 100px;
+    top: 400px;
+}
+
+.artist h1{
+    text-transform: uppercase;
+    color: #cac7ff;
+    font-size: 30px;
+}
+
+
+.artist ul{
+    position: absolute;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav {
+    background-color:rgba(0, 4, 29, 0.9);
+    overflow: hidden;
+  }
+  
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+
+.topnav a:hover {
+    background-color:#cac7ff;
+    color: black;
+  }
+  
+
+.topnav a.active {
+    background-color: #58629b;
+    color: #cac7ff;
+  }
+
+.layout{
+    background-image: 
+    linear-gradient(
+      rgba(116, 116, 116, 0.45), 
+      rgba(0, 0, 0, 0.45)
+    ), url("images/pexels-pixabay-258109.jpg");
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+    background-position: center;
+    background-size: cover;
+}
+
+.container{
+    width: 100%;
+    min-height: 40vh;
+    padding: 5%;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.search-bar{
+    position: absolute;
+    top: 130px;    
+    width: 100%;
+    max-width: 700px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    backdrop-filter: blur(4px) saturate(180%);
+}
+
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none; 
+    padding: 24px 20px;
+    font-size: 20px;
+    color: #cac7ff;
+
+}
+
+::placeholder{
+    color:#cac7ff;
+}
+
+.search-bar button img{
+    width: 25px;
+}
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: #58629b;
+    cursor: pointer;
+}
+
+.content-table{
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 525px;
+    margin-left: 350px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    padding: 5px;
+    clear: none;
+}
+
+.content-table thead tr{
+    background-color:rgba(0, 4, 29, 0.9);
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th, .content-table td{
+    padding: 12px 15px;
+}
+
+.content-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even){
+    background-color: #d4d4d4;
+}
+
+.content-table tbody tr:nth-of-type(odd){
+    background-color: #ffffff;
+}
+
+.content-table tbody tr:last-of-type{
+    border-bottom: 2px solid#dadada;
+}
+
+h1{
+    font-size: 30px;
+    margin-left: 550px;
+    clear: both;
+    color: #f2f2f2;
+}
+
+.content-table a{
+    color: rgb(68, 68, 68);
+    text-decoration: none;
+}
+
+.content-table-2{
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 300px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    padding: 5px;
+    clear: none;
+    
+}
+
+.content-table-2 thead tr{
+    background-color:rgba(0, 4, 29, 0.9);
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table-2 th, .content-table-2 td{
+    padding: 12px 15px;
+}
+
+.content-table-2 tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table-2 tbody tr:nth-of-type(even){
+    background-color: #d4d4d4;
+}
+
+.content-table-2 tbody tr:nth-of-type(odd){
+    background-color: #ffffff;
+}
+
+.content-table-2 tbody tr:last-of-type{
+    border-bottom: 2px solid#dadada;
+}
+
+h2{
+    font-size: 30px;
+    margin-left: 180px;
+    clear: both;
+    color: #f2f2f2;
+}
+
+.content-table-2 a{
+    color: rgb(68, 68, 68);
+    text-decoration: none;
+}
+
+.row {
+    margin-left:-5px;
+    margin-right:-5px;
+  }
+    
+.column {
+    float: left;
+    width: 50%;
+    padding: 5px;
+  }
+  
+  /* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  

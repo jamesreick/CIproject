@@ -26,7 +26,7 @@
 }
 
 .topnav {
-    background-color:rgba(0, 4, 29, 0.9);
+    background-color:rgb(0, 0, 0);
     overflow: hidden;
   }
   
@@ -42,14 +42,14 @@
   
 
 .topnav a:hover {
-    background-color:#cac7ff;
+    background-color:#d3d3d3;
     color: black;
   }
   
 
 .topnav a.active {
-    background-color: #58629b;
-    color: #cac7ff;
+    background-color: #353535;
+    color: #d3d3d3;
   }
 
 .layout{
@@ -57,9 +57,9 @@
     linear-gradient(
       rgba(116, 116, 116, 0.45), 
       rgba(0, 0, 0, 0.45)
-    ), url("images/pexels-pixabay-258109.jpg");
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
-    background-position: center;
+    ), url("images/Venue-safety-scaled-1.jpg");
+    box-shadow: inset 0 0 0 1000px rgba(94, 94, 94, 0.027);
+    background-position: 25% 75%;
     background-size: cover;
 }
 
@@ -77,7 +77,7 @@
 
 .search-bar{
     position: absolute;
-    top: 130px;    
+    top: 200px;    
     width: 100%;
     max-width: 700px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -95,12 +95,12 @@
     outline: none; 
     padding: 24px 20px;
     font-size: 20px;
-    color: #cac7ff;
+    color: #8d8d8d;
 
 }
 
 ::placeholder{
-    color:#cac7ff;
+    color:#8d8d8d;
 }
 
 .search-bar button img{
@@ -111,9 +111,15 @@
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    background: #58629b;
+    background: #353535;
     cursor: pointer;
 }
+
+.bottomLayout{
+        background-image: linear-gradient(rgb(0, 0, 0), 
+        rgb(0, 0, 0));
+}
+
 
 .content-table{
     border-collapse: collapse;
@@ -128,8 +134,8 @@
 }
 
 .content-table thead tr{
-    background-color:rgba(0, 4, 29, 0.9);
-    color: #ffffff;
+    background-color: #353535;
+    color: #d3d3d3;
     text-align: left;
     font-weight: bold;
 }
@@ -138,31 +144,24 @@
     padding: 12px 15px;
 }
 
+
 .content-table tbody tr{
-    border-bottom: 1px solid #dddddd;
+    color: #8d8d8d;
+    background-color: #1f1f1f;
 }
 
-.content-table tbody tr:nth-of-type(even){
-    background-color: #d4d4d4;
-}
 
-.content-table tbody tr:nth-of-type(odd){
-    background-color: #ffffff;
-}
-
-.content-table tbody tr:last-of-type{
-    border-bottom: 2px solid#dadada;
-}
 
 h1{
     font-size: 30px;
-    margin-left: 550px;
+    margin-left: 525px;
     clear: both;
     color: #f2f2f2;
+    padding: 5px;
 }
 
 .content-table a{
-    color: rgb(68, 68, 68);
+    color: rgb(95, 95, 95);
     text-decoration: none;
 }
 
@@ -179,8 +178,8 @@ h1{
 }
 
 .content-table-2 thead tr{
-    background-color:rgba(0, 4, 29, 0.9);
-    color: #ffffff;
+    background-color: #353535;
+    color: #d3d3d3;
     text-align: left;
     font-weight: bold;
 }
@@ -189,17 +188,12 @@ h1{
     padding: 12px 15px;
 }
 
+
 .content-table-2 tbody tr{
-    border-bottom: 1px solid #dddddd;
+    color: #8d8d8d;
+    background-color: #1f1f1f;
 }
 
-.content-table-2 tbody tr:nth-of-type(even){
-    background-color: #d4d4d4;
-}
-
-.content-table-2 tbody tr:nth-of-type(odd){
-    background-color: #ffffff;
-}
 
 .content-table-2 tbody tr:last-of-type{
     border-bottom: 2px solid#dadada;
@@ -210,10 +204,11 @@ h2{
     margin-left: 180px;
     clear: both;
     color: #f2f2f2;
+    padding: 5px;
 }
 
 .content-table-2 a{
-    color: rgb(68, 68, 68);
+    color: rgb(95, 95, 95);
     text-decoration: none;
 }
 

@@ -50,6 +50,8 @@
                <button name="submit"><img src="css/images/search.png"></button>
             </form>
          </div>
+      </div>
+      <div class = bottomLayout>
          <div class="row">
             <div class="column">
          <?php
@@ -63,7 +65,7 @@
             }else{
             $data = mysqli_fetch_all($results, MYSQLI_ASSOC);
             }?>
-            <h1> Top Artists </h1>
+            <h1>Top Artists</h1>
             <table class="content-table">
                <thead>
                   <tr>

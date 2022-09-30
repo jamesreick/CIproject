@@ -42,6 +42,7 @@
          <a href="#news">Blank</a>
          <a href="#contact">Blank</a>
          <a href="#about">Blank</a>
+         <div class = topnav-div>Music Discovery</div>
       </div>
       <div class="layout">
          <div class="container">

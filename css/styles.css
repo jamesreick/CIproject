@@ -195,10 +195,6 @@ h1{
 }
 
 
-.content-table-2 tbody tr:last-of-type{
-    border-bottom: 2px solid#dadada;
-}
-
 h2{
     font-size: 30px;
     margin-left: 180px;

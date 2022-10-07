@@ -41,20 +41,17 @@
 
 .element{
     font-family: 'PregnancyJourneyRegular-lgR7D';
-    padding: 0px;
-    font-size: 50px;
+    padding: 5px;
+    font-size: 80px;
+    margin-top: 10px;
+    margin-right: 20px;
     position: absolute;
 }
 #element-1{   
     color: #f2f2f2;
-    margin-left: 770px;
-    z-index: 1; 
+    margin-left: 670px;
+    z-index: 2; 
 }
-#element-2{
-     color:#8d8d8d49; 
-     margin-left: 780px; 
-     margin-top: 8px;
-     z-index:2; }
 
 .topnav {
     background-color:rgb(0, 0, 0);
@@ -70,11 +67,11 @@
     text-decoration: none;
     font-size: 17px;
   }
+
   
 
 .topnav a:hover {
-    background-color:#d3d3d3;
-    color: black;
+    background:#ff7c4094;
   }
   
 
@@ -82,17 +79,6 @@
     background-color: #353535;
     color: #d3d3d3;
   }
-
-.layout{
-    background-image: 
-    linear-gradient(
-      rgba(116, 116, 116, 0.45), 
-      rgb(0, 0, 0)
-    ), url("images/Venue-safety-scaled-1.jpg");
-    box-shadow: inset 0 0 0 1000px rgba(94, 94, 94, 0.027);
-    background-position: 25% 75%;
-    background-size: cover;
-}
 
 .container{
     width: 100%;
@@ -126,12 +112,12 @@
     outline: none; 
     padding: 24px 20px;
     font-size: 20px;
-    color: #8d8d8d;
+    color: #f759108a;
 
 }
 
 ::placeholder{
-    color:#8d8d8d;
+    color:#353535;
 }
 
 .search-bar button img{
@@ -146,119 +132,164 @@
     cursor: pointer;
 }
 
-.bottomLayout{
-        background-image: linear-gradient(rgb(0, 0, 0), 
-        rgb(0, 0, 0));
-        padding-bottom: 150px;
-}
+#gradient-canvas {
+    width:100%;
+    height: 70vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 
-
-.content-table{
-    border-collapse: collapse;
-    font-size: 0.9em;
-    min-width: 525px;
-    margin-left: 275px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    padding: 5px;
-    clear: none;
-}
-
-.content-table thead tr{
-    background-color: #353535;
-    color: #f759108a;
-    text-align: left;
-}
-
-.content-table th, .content-table td{
-    padding: 12px 15px;
-}
-
-
-.content-table tbody tr{
-    color: #8d8d8d;
-    background-color: #1f1f1f;
-}
-
-
-
-h1{
-    font-size: 25px;
-    font-weight: 5;
-    margin-top: 100px;
-    margin-left: 400px;
-    clear: both;
-    color: #8d8d8d;
-    padding: 5px;
-}
-
-.content-table a{
-    color: rgb(95, 95, 95);
-    text-decoration: none;
-}
-
-.content-table-2{
-    border-collapse: collapse;
-    font-size: 0.9em;
-    margin-left: 100px;
-    min-width: 300px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    padding: 5px;
-    clear: none;
-    
-}
-
-.content-table-2 thead tr{
-    background-color: #353535;
-    color: #f759108a;
-    text-align: left;
-    font-weight: bold;
-}
-
-.content-table-2 th, .content-table-2 td{
-    padding: 12px 15px;
-}
-
-
-.content-table-2 tbody tr{
-    color: #8d8d8d;
-    background-color: #1f1f1f;
-}
-
-
-h2{
-    font-size: 25px;
-    font-weight: 5;
-    margin-top: 100px;
-    margin-left: 220px;
-    clear: both;
-    color: #8d8d8d;
-    padding: 5px;
-}
-
-.content-table-2 a{
-    color: rgb(95, 95, 95);
-    text-decoration: none;
-}
-
-.row {
-    margin-left:-5px;
-    margin-right:-5px;
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 100%);
+    --gradient-color-1: #043D5D; 
+    --gradient-color-2: #032E46; 
+    --gradient-color-3: #23B684;  
+    --gradient-color-4: #0F595E;
   }
-    
-.column {
-    float: left;
-    width: 50%;
-    padding: 5px;
-  }
-  
-  /* Clearfix (clear floats) */
-.row::after {
-    content: "";
-    clear: both;
+
+
+/*https://codepen.io/alvarotrigo/pen/xxYGELY*/  
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+html, body {
+    overflow-x: hidden;
+    height: 100%;
+}
+body {
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
+}
+.header {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    position: fixed;
+    height: 60px!important;
+    overflow: hidden;
+    z-index: 10;
+}
+.main {
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+    margin-top: 60px;
+}
+.mainInner{
     display: table;
-  }
-  
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.mainInner div{
+    display:table-cell;
+    vertical-align: middle;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1.25px;
+}
+#sidebarMenu {
+    z-index: 1;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    margin-top: 60px;
+    transform: translateX(-250px);
+    transition: transform 250ms ease-in-out;
+}
+.sidebarMenuInner{
+    margin:0;
+    padding:0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenuInner li{
+    list-style: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenuInner li span{
+    display: block;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.50);
+}
+.sidebarMenuInner li a{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+input[type="checkbox"]:checked ~ #sidebarMenu {
+    transform: translateX(0);
+}
+
+input[type=checkbox] {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+.sidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 22px;
+    left: 15px;
+    height: 22px;
+    width: 22px;
+}
+.spinner {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+}
+.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+.diagonal.part-1 {
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    float: left;
+}
+.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}

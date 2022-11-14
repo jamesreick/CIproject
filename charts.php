@@ -18,6 +18,7 @@
       <meta charset="utf-8">
       <link href="https://font.goggleapis.com/css?fmaily=Work+Sans:300">
       <link rel="stylesheet" href="css/stylesChart.css">
+      <link rel="stylesheet" href="css/styles.css">
    </head>
    <body>
 

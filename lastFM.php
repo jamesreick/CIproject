@@ -164,9 +164,12 @@ class LastFM{
                 FROM topartists";
         $sql_1 = "DELETE
                   FROM topsongs";
+        $sql_2 = "DELETE
+                  FROM spotify_artist";
 
         mysqli_query($conn, $sql);
         mysqli_query($conn, $sql_1);
+        mysqli_query($conn, $sql_2);
 
     }
 }

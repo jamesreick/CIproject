@@ -39,7 +39,6 @@
         <link rel="stylesheet" href="css/styles.css" href="css/stylesChart.css" />
     </head>
     <title">Music Discovery</title>
-    <meta http-equiv="refresh" content="5; url = https://www.tutorialspoint.com/index.htm" />
     <body>
         <div id="element-1" class="element">Music Discovery</div>
         <div class="header"></div>

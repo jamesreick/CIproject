@@ -3,7 +3,7 @@ function getDB(){
 
 
     $db_host = "localhost";
-    $db_name = "lastfm";
+    $db_name = "musicdic_musicdiscovery";
     $db_user = "root";
     $db_pass = "";
 

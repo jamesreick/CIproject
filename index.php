@@ -5,27 +5,32 @@
 
    $conn = getDB();
    $lastFM = new LastFM($apiKey);
-   //$lastFM->updateDB();
+   $lastFM->updateDB();
    $lastFM->getTopArtists();
    $lastFM->getChartTopTracks();
+   //$lastFM->youtubeVideo($q);
    //$getArtistFeild = "drake";
    //$lastFM->getArtists($getArtistFeild);
    $artistRedirect = 'artistProfile.php';
    
    
    if(isset($_POST['submit'])){
-       $lastFM->updateDB();
        $getField = $_POST['getField'];
-       $python_return = exec("index.py $getField");
-       /*if (preg_match('/\s/', $getField)){
-           $getField = str_replace(" ", "+", $getField);
-           $getField= strtolower($getField);
-           $python_return = exec("index.py $getField");
+       $q = $_POST['getField'];
+       $search = $_POST['getField'];
+       $lastFM->search_function($search);
+       $python_return = exec("python index.py $getField");
+       //echo $python_return;
+       if (preg_match('/\s/', $q)){
+           $q = str_replace(" ", "+", $getField);
+           $q= strtolower($q);
+           $lastFM->youtubeVideo($q);
+           
        }else{
-           $python_return = exec("index.py $getField");
-       }*/
+            $lastFM->youtubeVideo($q);
+       }
        //echo $getField;
-       header ('Location: http://localhost:8080/njtest/searchIndex.php');
+       header ('Location: http://localhost/CIproject/searchIndex.php');
    }
    
    
@@ -36,27 +41,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="utf-8" />
         <link href="https://font.goggleapis.com/css?fmaily=Work+Sans:300" />
-        <link rel="stylesheet" href="css/styles.css" href="css/stylesChart.css" />
+        <link rel="stylesheet" href="css/styles.css"/>
+        <link rel="stylesheet" href="css/stylesChart.css"/>
     </head>
-    <title">Music Discovery</title>
     <body>
-        <div id="element-1" class="element">Music Discovery</div>
-        <div class="header"></div>
-        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" />
-        <label for="openSidebarMenu" class="sidebarIconToggle">
-            <div class="spinner diagonal part-1"></div>
-            <div class="spinner horizontal"></div>
-            <div class="spinner diagonal part-2"></div>
-        </label>
-        <div id="sidebarMenu">
-            <ul class="sidebarMenuInner">
-                <li><a href="http://localhost:8080/njtest/charts.php" target="_blank">Charts</a></li>
-                <li><a href="https://instagram.com/plavookac" target="_blank">Music</a></li>
-                <li><a href="https://twitter.com/plavookac" target="_blank">Music</a></li>
-                <li><a href="https://www.youtube.com/channel/UCDfZM0IK6RBgud8HYGFXAJg" target="_blank">Music</a></li>
-                <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">Music</a></li>
-            </ul>
-        </div>
+    <a href="index.php">
+            <div id="element-1" class="element">Music Discovery</div>
+        </a>
         <canvas id="gradient-canvas" data-transition-in></canvas>
         <script type="module">
             import { Gradient } from "./css/Gradient.js";
@@ -75,6 +66,83 @@
                 </form>
             </div>
         </div>
-        <p>Discover your favorite songs, artists, and ablums all at the click of a button.</p>
+        <div class = bottomLayout>
+         <div class="row">
+            <div class="column">
+         <?php
+            $sql = "SELECT *
+                    FROM topartists";
+  
+            $results = mysqli_query($conn, $sql);
+            
+            if ($results === false){
+            echo mysqli_error($conn);
+            }else{
+            $data = mysqli_fetch_all($results, MYSQLI_ASSOC);
+            }?>
+            <h1>Top Artists</h1>
+            <table class="content-table">
+               <thead>
+                  <tr>
+                     <th>Rank</th>
+                     <th>Name</th>
+                     <th>Listeners</th>
+                     <th>Playcount</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <?php $i= 0; foreach ($data as $data): ?>
+                  <tr>
+                     <?php $i++;?>
+                     <td><?php echo $i?></td>
+                     <td><a href=<?= ($data['topArtistURL']); ?>><?= 
+                        ($data['topArtistName']); ?></a> </td>
+                     <td><?= $data['topArtistlisteners'];?> </td>
+                     <td><?= $data['topArtistPlayCount'];?> </td>
+                     <?php endforeach; ?>
+                  </tr>
+               </tbody>
+            </table>
+            </div>
+            <div class="column">
+            <?php
+    
+               $sql = "SELECT *
+                       FROM topsongs";
+      
+               $results = mysqli_query($conn, $sql);
+                
+                if ($results === false){
+                echo mysqli_error($conn);
+                }else{
+                $data = mysqli_fetch_all($results, MYSQLI_ASSOC);
+                }?>
+            <h2> Top Songs </h2>
+            <table class="content-table-2">
+               <thead>
+                  <tr>
+                     <th>Rank</th>
+                     <th>Song</th>
+                     <th>Listeners</th>
+                     <th>Playcount</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <?php $i= 0; foreach ($data as $data): ?>
+                  <tr>
+                     <?php $i++;?>
+                     <td><?php echo $i?></td>
+                     <td><a href=<?= ($data['topChartArtistURL']); ?>><?= 
+                        ($data['topChartSongName']); ?> - <?= $data['topChartArtistName'];?> </a> </td>
+                     <td><?= $data['topChartSongListeners'];?> </td>
+                     <td><?= $data['topChartSongPlayCount'];?> </td>
+                     <?php endforeach; ?>
+                  </tr>
+               </tbody>
+            </table>
+            </div>
+         </div>
+      </div>
+
     </body>
 </html>

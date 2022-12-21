@@ -9,7 +9,7 @@ mydb = mysql.connector.connect (
     host="localhost",
     user="root",
     password="",
-    database="lastfm"
+    database="musicdic_musicdiscovery"
 )
 
 print(mydb)

@@ -157,6 +157,105 @@ class LastFM{
             }
     }*/
 
+        function youtubeVideo($q){
+
+        $key = "AIzaSyBrUZOegVqYsBJdzCrg6xTK6T6AP721Jhk";
+        $base_url = "https://www.googleapis.com/youtube/v3/";
+
+        $API_URL = curl_init($base_url . "search?&key=" . $key . "&q=" . $q . "music-video&type=video&part=snippet&maxResults=3");
+
+        curl_setopt($API_URL, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($API_URL, CURLOPT_HEADER, 0);
+        curl_setopt($API_URL, CURLOPT_TIMEOUT, 3);
+        $videos = curl_exec($API_URL);
+        curl_close($API_URL);
+
+        $videos = json_decode($videos, true);
+        //var_dump($videos);
+        //$videos = json_decode( file_get_contents( $API_URL ) );
+
+        $conn = getDB();
+
+        $videos = $videos['items'];
+        //var_dump($videos);
+
+        for ($i = 0; $i < 3; $i++) {
+
+            $items = $videos[$i];
+            $videoId = $items['id']['videoId'];
+            //var_dump($videoId);
+            $title = $items['snippet']['title'];
+            //var_dump($title);
+            $thumbnail = $items['snippet']['thumbnails']['high']['url'];
+            //var_dump($thumbnail);
+            $publishedAt = $items['snippet']['publishedAt'];
+            //var_dump($publishedAt);
+
+            $sql = "INSERT INTO `videos`
+                    (id, video_type, video_id, title, thumbnail_url)
+                    VALUES
+                    (NULL, 1, '$videoId', '$title', '$thumbnail')";
+
+            mysqli_query($conn, $sql);
+
+        }
+        }
+
+        function search_function($search) {
+            $conn = getDB();
+    
+            
+                error_reporting(0);
+                ini_set('display_errors', 0);
+    
+                $search = str_replace(' ', '%20', $search);
+                //echo $search_term;
+    
+                $curl = curl_init();
+                
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => "https://api.genius.com/search?q='.$search.'",
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 30,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "GET",
+                    CURLOPT_HTTPHEADER => array("Authorization: Bearer xU__gJenf4uG5tqBpdMdgf3Oy5OdlSGUfCCzd-XicJdIaS_fHtINytZeYH7_8rYn")
+                ));
+    
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+                //echo $response;
+                curl_close($curl);
+    
+                if ($err) {
+                    echo "cURL Error #:" . $err;
+                } else {
+                    //echo $response;
+                    $data = json_decode($response, true);
+                    //print_r($data);
+    
+                    for ($index = 0; $index < 5; $index++) {
+                        $API_PATH       = mysqli_real_escape_string($conn, "https://genius.com" . $data['response']['hits'][$index]['result']['api_path']);
+                        $ARTIST_NAME    = mysqli_real_escape_string($conn, $data['response']['hits'][$index]['result']['artist_names']);
+                        $FULL_TITLE     = mysqli_real_escape_string($conn, $data['response']['hits'][$index]['result']['full_title']);
+                        $ID             = mysqli_real_escape_string($conn, $data['response']['hits'][$index]['result']['id']);
+                        $LYRICS_PATH    = mysqli_real_escape_string($conn, "https://genius.com" . $data['response']['hits'][$index]['result']['path']);
+                        $TITLE          = mysqli_real_escape_string($conn, $data['response']['hits'][$index]['result']['title']);
+                        $IMAGE_URL      = mysqli_real_escape_string($conn, $data['response']['hits'][$index]['result']['header_image_url']);
+    
+                        $sql = "INSERT INTO genius (API_PATH, ARTIST_NAME, FULL_TITLE, ID, LYRICS_PATH, TITLE, IMAGE_URL) VALUES ('$API_PATH', '$ARTIST_NAME', '$FULL_TITLE', '$ID', '$LYRICS_PATH', '$TITLE', '$IMAGE_URL')";
+                        mysqli_query($conn, $sql);
+                    }
+    
+    
+            }
+    
+        }
+    
+
     function updateDB(){
         $conn = getDB();
 
@@ -166,10 +265,15 @@ class LastFM{
                   FROM topsongs";
         $sql_2 = "DELETE
                   FROM spotify_artist";
+        $sql_3 = "DELETE
+                    FROM videos";
+        $sql_4 = "DELETE
+                    FROM genius";
 
         mysqli_query($conn, $sql);
         mysqli_query($conn, $sql_1);
         mysqli_query($conn, $sql_2);
-
+        mysqli_query($conn, $sql_3);
+        mysqli_query($conn, $sql_4);
     }
 }
